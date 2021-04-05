@@ -1,0 +1,109 @@
+<!doctype html><html class=no-js lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><title>关于Promise的几个Tips - 小牛写字的地方</title><script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content><meta property="og:title" content="关于Promise的几个Tips"><meta property="og:description" content="天天用的 Promise，你真的了解它吗？"><meta property="og:type" content="article"><meta property="og:url" content="http://xuxinhang.github.io/posts/%E5%85%B3%E4%BA%8Epromise%E7%9A%84%E5%87%A0%E4%B8%AAtips/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-05-18T12:54:08+00:00"><meta property="article:modified_time" content="2018-05-18T12:54:08+00:00"><meta itemprop=name content="关于Promise的几个Tips"><meta itemprop=description content="天天用的 Promise，你真的了解它吗？"><meta itemprop=datePublished content="2018-05-18T12:54:08+00:00"><meta itemprop=dateModified content="2018-05-18T12:54:08+00:00"><meta itemprop=wordCount content="324"><meta itemprop=keywords content="Javascript,Promise,"><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=小牛写字的地方 rel=home><div class="logo__item logo__text"><div class=logo__title>小牛写字的地方</div><div class=logo__tagline>专属小牛的写字工作区</div></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menu</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/><span class=menu__text>首页</span></a></li><li class=menu__item><a class=menu__link href=/posts/><span class=menu__text>文章</span></a></li><li class=menu__item><a class=menu__link href=/about/><span class=menu__text>关于我</span></a></li><li class=menu__item><a class=menu__link href=https://github.com/xuxinhang><span class=menu__text>GitHub</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>关于Promise的几个Tips</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>小牛</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2018-05-18T12:54:08Z>2018-05-18</time></div></div></header><div class="post__toc toc"><div class=toc__title>Page content</div><div class=toc__menu><nav id=TableOfContents><ul><li><a href=#callback的返回值和promisethen的返回值>Callback的返回值和Promise#then的返回值</a><ul><li><a href=#返回值>返回值</a></li></ul></li></ul><ul><li><a href=#尾声看一道题目>尾声：看一道题目</a><ul><li><a href=#参考>参考</a></li></ul></li></ul></nav></div></div><div class="content post__content clearfix"><h1 id=promise-概念>Promise 概念</h1><p>略</p><h1 id=tips1-返回值和方法链>TIPS1 返回值和方法链</h1><pre><code>Promise#then(resolveCallback [, rejectCallback])
+Promise#catch(rejectCallback)
+</code></pre><p>（其实就是同个方法）</p><p>如果Promise是接受态的，会调用resolveCallback，至于会传入什么参数，就要看Promise 写成什么样子了。
+Promise是拒绝的，会调用rejectCallback。</p><p>Promise机制的最大好处：链式调用
+Promise#then 仍然返回一个Promise，所以可以链式调用Promise#then，一次完成多个异步动作</p><h2 id=callback的返回值和promisethen的返回值>Callback的返回值和Promise#then的返回值</h2><h3 id=返回值>返回值</h3><p>then方法返回一个Promise，而它的行为与then中的回调函数的返回值有关：
+• 如果then中的回调函数返回一个值，那么then返回的Promise将会成为接受状态，并且将返回的值作为接受状态的回调函数的参数值。
+• 如果then中的回调函数抛出一个错误，那么then返回的Promise将会成为拒绝状态，并且将抛出的错误作为拒绝状态的回调函数的参数值。</p><p>• 如果then中的回调函数返回一个已经是接受状态的Promise，那么then返回的Promise也会成为接受状态，并且将那个Promise的接受状态的回调函数的参数值作为该被返回的Promise的接受状态回调函数的参数值。
+• 如果then中的回调函数返回一个已经是拒绝状态的Promise，那么then返回的Promise也会成为拒绝状态，并且将那个Promise的拒绝状态的回调函数的参数值作为该被返回的Promise的拒绝状态回调函数的参数值。
+• 如果then中的回调函数返回一个未定状态（pending）的Promise，那么then返回Promise的状态也是未定的，并且它的终态与那个Promise的终态相同；同时，它变为终态时调用的回调函数参数与那个Promise变为终态时的回调函数的参数是相同的。</p><ul><li>Callback中 return
+#then返回一个接受态的Promise。相当于Promise.resolve(what_returned_by_your_code)
+于是你可以在链中接进去一个#then</li><li>Callback中 throw。
+返回拒绝的Promise。= Promise.reject(what_thrown_by_you)
+会调用接下来的#catch</li><li>Callback中返回Promise 接受态/拒绝态/等待态
+#then返回值就是你在Callback中返回的Promise。因为这个特性，所以你可以进行多个连续的一环套一环的异步操作了。</li></ul><p>【注意】上面的规则无论针对resolveCb还是rejectCb都是适用的，#then返回的Promise的状态和从哪个Callback返回的无关。即使是一个失败的Promise，经过#then的处理，也可以返回一个成功的Promise以继续方法链。
+“在一个失败操作（即一个 catch）之后可以继续使用链式操作，即使链式中的一个动作失败之后还能有助于新的动作继续完成。”</p><p>【注意】JS引擎抛出的错误也会导致#then返回失败的Promise，但是不会在console里有任何提示。所以特别注意“静默失败”问题。 &mdash;-下面会再谈这个事情。</p><h1 id=tips2-callback的坑>TIPS2 Callback的坑</h1><p>虽然在executor 里面可以 resolve(arg1, arg2, …) 或者reject(arg1, arg2, …)。但是在Callback只有第一个参数是可用的。
+MDN上 也明确指出了这一点。参看MDN文档。</p><pre><code>new Promise((resolve, reject) =&gt; {
+  reject({a: 1, b: 2}, 'arg2')
+}).catch((...args) =&gt; {
+  console.log(args)
+})
+
+/*
+[…]
+  0: Object { a: 1, b: 2 }
+  length: 1 /* ⚠ */
+  __proto__: Array []
+*/
+
+/* 只好这样了：还算优雅吧 */
+new Promise((resolve) =&gt; {
+  resolve({a: 1, b: 2});
+}).then(({a, b}) =&gt; {
+  console.log(a, b);
+})
+</code></pre><h1 id=tips3-隆重介绍promisefinally>TIPS3 隆重介绍：Promise#finally</h1><p>finally() 方法返回一个Promise，在执行then()和catch()后，都会执行finally指定的回调函数。避免同样的语句需要在then()和catch()中各写一次的情况。
+#finally的返回值：返回此#finally附加到的Promise本身。
+finally的回调函数中不接收任何参数</p><p>但是现在浏览器支持还不算很好。</p><h1 id=tips5-thensuccess-fail-与-thensuccesscatchfail-的区别>TIPS5 <code>.then(success, fail)</code> 与 <code>.then(success).catch(fail)</code> 的区别</h1><p>.catch 里的fail会把.then的success中的错误捕获住。但是前一种方法不会</p><pre><code>var somePromise = Promise.resolve({code: 200, data: 'OK'});
+
+somePromise
+.then(() =&gt; {
+  undefined.undefined;
+  // A silly error you haven't noticed
+  console.log('你的表单已提交！');
+})
+.catch(() =&gt; {
+  console.error('提交表单时遇到问题，请检查网络！');
+})
+
+/**
+ * [ERROR] &quot;提交表单时遇到问题，请检查网络！&quot;
+ * 你可能会先从 somePromise 上找问题
+ * 你手抖写下的错误代码被“藏”起来了
+ */
+
+
+somePromise
+.then(() =&gt; {
+  undefined.undefined;
+  // A silly error you haven't noticed
+  console.log('你的表单已提交！');
+}, () =&gt; {
+  console.error('提交表单时遇到问题，请检查网络！');
+})
+
+/*
+ * TypeError: undefined has no properties
+ * 我想你一看控制台就知道问题出在哪里了
+*/
+</code></pre><p><strong>小调查：你们喜欢怎么写？</strong></p><h1 id=tips7-深入js引擎探究-promise-与-event-loop>TIPS7 深入JS引擎，探究 Promise 与 Event Loop</h1><p>来自hzy的解答（基于Node.js / V8）</p><p><a href=https://newbbs.bingyan.net/topics/850>https://newbbs.bingyan.net/topics/850</a></p><p>问题：<strong>ECMAScript 规范中没有叫 Event Loop、Task List、Micro Task 等概念！</strong> 所以，还是读规范吧。</p><p>开始阅读ECMA规范</p><p>Note
+Typically an ECMAScript implementation will have its Job Queues pre-initialized with at least one PendingJob and one of those Jobs will be the first to be executed. An implementation might choose to free all resources and terminate if the current Job completes and all Job Queues are empty. Alternatively, it might choose to wait for a some implementation specific agent or mechanism to enqueue new PendingJob requests.</p><p>The following abstract operations are used to create and manage Jobs and Job Queues:</p><p>running execution context == 执行栈</p><p>但是，PromiseJobs执行的先后次序规范中没有提到
+所以，读规范读到最后，还是不知道是怎么回事。
+但是，现在的主流浏览器中Promise回调都在其他回调（如setTimeout）之前。待解答。</p><h2 id=尾声看一道题目>尾声：看一道题目</h2><pre><code>console.log(1);
+new Promise(function (resolve, reject){
+    reject(true);
+    window.setTimeout(function (){
+        resolve(false);
+    }, 0);
+}).then(function(){
+    console.log(2);
+}, function(){
+    console.log(3);
+});
+console.log(4);
+</code></pre><p>来自 <a href=https://segmentfault.com/a/1190000006172528>https://segmentfault.com/a/1190000006172528</a></p><h3 id=参考>参考</h3><p><a href=https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/>https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/</a></p></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/javascript/ rel=tag>Javascript</a></li><li class=tags__item><a class="tags__link btn" href=/tags/promise/ rel=tag>Promise</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="小牛 avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>About 小牛</span></div><div class=authorbox__description>就只是一只小牛而已</div></div><nav class="pager flex"><div class="pager__item pager__item--prev"><a class=pager__link href=/posts/windows-git%E4%B8%ADopenssh%E6%97%A0ssh-agent%E5%A4%9A%E5%AF%86%E9%92%A5%E9%85%8D%E7%BD%AE%E5%B0%8F%E8%AE%B0/ rel=prev><span class=pager__subtitle>«&#8201;Previous</span><p class=pager__title>Windows-Git中OpenSSH无ssh-agent多密钥配置小记</p></a></div><div class="pager__item pager__item--next"><a class=pager__link href=/posts/%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%9E%8B/ rel=next><span class=pager__subtitle>Next&#8201;»</span><p class=pager__title>管理系统的登录控制？手写一个发布订阅模型！</p></a></div></nav></div><aside class="sidebar sidebar--left"><div class="widget-search widget"><form class=widget-search__form role=search method=get action=https://google.com/search><label><input class=widget-search__field type=search placeholder=SEARCH… name=q aria-label=SEARCH…></label>
+<input class=widget-search__submit type=submit value=Search>
+<input type=hidden name=sitesearch value=http://xuxinhang.github.io/></form></div><div class="widget-recent widget"><h4 class=widget__title>Recent Posts</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/posts/%E4%BD%BF%E7%94%A8tex%E7%9B%92%E5%AD%90%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%BE%8B%E5%AD%90/>使用 TeX 盒子的两个例子</a></li><li class=widget__item><a class=widget__link href=/posts/%E6%9D%82%E8%B0%88%E6%80%8E%E6%A0%B7%E6%95%B4%E7%90%86%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%96%87%E4%BB%B6/>杂谈：怎样整理各式各样的个人文件？</a></li><li class=widget__item><a class=widget__link href=/posts/%E6%80%8E%E6%A0%B7%E8%88%92%E9%80%82%E5%9C%B0%E4%BD%BF%E7%94%A8vim%E7%A0%81%E5%AD%97%E5%86%99%E6%96%87%E7%AB%A0/>怎样舒适地使用 Vim 码字写文章</a></li><li class=widget__item><a class=widget__link href=/posts/latex%E5%85%A5%E9%97%A8%E5%B0%8F%E8%AE%B0vim+vimtex+latex%E5%88%9D%E4%BD%93%E9%AA%8C/>LaTeX 入门小记：Vim + Vimtex + LaTeX 初体验</a></li><li class=widget__item><a class=widget__link href=/posts/%E7%94%A8%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E9%95%82%E7%A9%BA%E6%95%88%E6%9E%9C/>用纯 CSS 实现镂空效果</a></li><li class=widget__item><a class=widget__link href=/posts/%E4%BD%BF%E7%94%A8heroku%E6%88%96openshift%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91v2ray%E6%9C%8D%E5%8A%A1/>使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务</a></li><li class=widget__item><a class=widget__link href=/posts/%E5%89%96%E6%9E%90-https-%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/>剖析 HTTPS 的设计思路</a></li><li class=widget__item><a class=widget__link href=/posts/pro-git-tips/>Pro Git Tips</a></li><li class=widget__item><a class=widget__link href=/posts/%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%9E%8B/>管理系统的登录控制？手写一个发布订阅模型！</a></li><li class=widget__item><a class=widget__link href=/posts/%E5%85%B3%E4%BA%8Epromise%E7%9A%84%E5%87%A0%E4%B8%AAtips/>关于Promise的几个Tips</a></li></ul></div></div><div class="widget-categories widget"><h4 class=widget__title>Categories</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/latex/>LaTeX</a></li></ul></div></div><div class="widget-taglist widget"><h4 class=widget__title>Tags</h4><div class=widget__content><a class="widget-taglist__link widget__link btn" href=/tags/blend-mode/ title="blend mode">blend mode</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/context/ title=Context>Context</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/css/ title=CSS>CSS</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/flex/ title=Flex>Flex</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/git/ title=Git>Git</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/https/ title=HTTPS>HTTPS</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/javascript/ title=Javascript>Javascript</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/latex/ title=LaTeX>LaTeX</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/mask/ title=mask>mask</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/promise/ title=Promise>Promise</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/react/ title=React>React</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/ssh/ title=SSH>SSH</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/v2ray/ title=V2Ray>V2Ray</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/vim/ title=Vim>Vim</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/webpack/ title=Webpack>Webpack</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/ title=发布订阅>发布订阅</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/ title=密码学>密码学</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/ title=开发工具>开发工具</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E6%B7%B7%E5%90%88%E6%A8%A1%E5%BC%8F/ title=混合模式>混合模式</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ title=科学上网>科学上网</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ title=设计模式>设计模式</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E9%95%82%E7%A9%BA/ title=镂空>镂空</a></div></div></aside></div><footer class=footer><div class="container footer__container flex"><div class=footer__copyright>&copy; 2021 xuxinhang.
+<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>

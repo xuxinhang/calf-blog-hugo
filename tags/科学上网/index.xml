@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>科学上网 on 小牛写字的地方</title><link>http://xuxinhang.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link><description>Recent content in 科学上网 on 小牛写字的地方</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 12 Feb 2019 22:16:40 +0000</lastBuildDate><atom:link href="http://xuxinhang.github.io/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务</title><link>http://xuxinhang.github.io/posts/%E4%BD%BF%E7%94%A8heroku%E6%88%96openshift%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91v2ray%E6%9C%8D%E5%8A%A1/</link><pubDate>Tue, 12 Feb 2019 22:16:40 +0000</pubDate><guid>http://xuxinhang.github.io/posts/%E4%BD%BF%E7%94%A8heroku%E6%88%96openshift%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91v2ray%E6%9C%8D%E5%8A%A1/</guid><description>使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务 选择一款墙外的云服务 如果有点钱：买一个云 这里还是推荐使用付费的云服务器，因为它的性能更加稳定，而且有良好的技术支持。只要所选的服务器位于墙外的网络上就可以。
+蓐羊毛：使用免费云 如果不想出这笔钱，也可选择境外的免费云服务。这里选择的是 Heroku 和 OpenShift，而且也不需要信用卡认证。这两个网站的登录、注册和管理页面需要翻墙才能进入。所以，需要提前备一个翻墙服务，直到完成服务器的部署。
+免费的服务一般速度会比较慢，延迟高，而且也不稳定。如果你需要快速、更稳定的翻墙服务就不要在这上面打主意了，买一个靠谱的云服务吧！
+使用 Heroku 进入 Heroku，注册一个账户，登录。可能需要翻墙才能进入注册页面。
+进入管理页面， New -&amp;gt; Create New App 选择服务器位置，选择 &amp;ldquo;Europe&amp;rdquo; 还是 &amp;ldquo;US&amp;rdquo; 看自己，可以都试一试。
+进入新建的 App，“Settings”中，添加一个环境变量 “V2RAY_CONFIG_JSON”，内容为你的 JSON 配置内容。（这里的 value 框可以输入多行，这个设计很不错！）
+进入“Deploy”，选择使用“Heroku CLI”，照网页上的指导进行操作，完成部署。
+另外也有几个命令值得关注：
+heroku git:remote - 添加 remote 到现有的仓库 Link
+&amp;hellip;
+更详细的步骤可见 Deploy the app
+一般来说，只要一 push，部署过程就会自动执行。
+服务端配置示例 { &amp;#34;log&amp;#34;: { &amp;#34;error&amp;#34;: &amp;#34;.</description></item></channel></rss>

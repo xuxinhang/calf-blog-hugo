@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS on 小牛写字的地方</title><link>http://xuxinhang.github.io/tags/css/</link><description>Recent content in CSS on 小牛写字的地方</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 22 Feb 2019 23:20:51 +0000</lastBuildDate><atom:link href="http://xuxinhang.github.io/tags/css/index.xml" rel="self" type="application/rss+xml"/><item><title>用纯 CSS 实现镂空效果</title><link>http://xuxinhang.github.io/posts/%E7%94%A8%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E9%95%82%E7%A9%BA%E6%95%88%E6%9E%9C/</link><pubDate>Fri, 22 Feb 2019 23:20:51 +0000</pubDate><guid>http://xuxinhang.github.io/posts/%E7%94%A8%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E9%95%82%E7%A9%BA%E6%95%88%E6%9E%9C/</guid><description>&lt;blockquote>
+&lt;p>UPDATE 2/26&lt;/p>
+&lt;p>现在为示例 CodePen 添加了厂商前缀，并在正文中添加了兼容性提示。感谢评论区的各位。&lt;/p>
+&lt;/blockquote>
+&lt;p>近来研究了一下镂空效果。&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>CSS 视觉格式化模型 Visual Formatting Model</title><link>http://xuxinhang.github.io/posts/css-%E8%A7%86%E8%A7%89%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A8%A1%E5%9E%8B-visual-formatting-model/</link><pubDate>Sun, 18 Feb 2018 12:52:09 +0000</pubDate><guid>http://xuxinhang.github.io/posts/css-%E8%A7%86%E8%A7%89%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A8%A1%E5%9E%8B-visual-formatting-model/</guid><description>&lt;p>&lt;img src="7e8f35beff7b07022095b9bc4b634416.png" alt="img">&lt;/p>
+&lt;h1 id="whats-css-visual-formatting-model">What’s CSS Visual Formatting Model&lt;/h1>
+&lt;ul>
+&lt;li>视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制。&lt;/li>
+&lt;li>根据CSS盒模型，浏览器为文档元素生成盒子(Box)。视觉格式化模型就是文档里的“盒子布局呈现的一种规则”。&lt;/li>
+&lt;/ul></description></item><item><title>说不尽的FlexBox：深入探究</title><link>http://xuxinhang.github.io/posts/%E8%AF%B4%E4%B8%8D%E5%B0%BD%E7%9A%84flexbox%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6/</link><pubDate>Sun, 01 Jan 2017 12:48:17 +0000</pubDate><guid>http://xuxinhang.github.io/posts/%E8%AF%B4%E4%B8%8D%E5%B0%BD%E7%9A%84flexbox%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6/</guid><description>&lt;p>&lt;strong>折腾Flexbox的总结&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Demo演示文件请移步文末&lt;/strong>&lt;/p>
+&lt;h1 id="缘起">缘起&lt;/h1>
+&lt;p>说来惭愧，我是在几个星期前因为项目的原因才开始大规模地使用flex布局。flex设计的非常巧妙，背后的原理也比较复杂（看看下面的那张图就知道了）。我找了些网上的资料，自己研究了一下flex布局在各种情况下的表现。对现有的结论做出了验证，自己也有了些新结论。学习CSS这个及其灵活的玩意，我们不仅要懂是什么，还要知道为什么。&lt;/p></description></item></channel></rss>

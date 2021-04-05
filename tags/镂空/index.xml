@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>镂空 on 小牛写字的地方</title><link>http://xuxinhang.github.io/tags/%E9%95%82%E7%A9%BA/</link><description>Recent content in 镂空 on 小牛写字的地方</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 22 Feb 2019 23:20:51 +0000</lastBuildDate><atom:link href="http://xuxinhang.github.io/tags/%E9%95%82%E7%A9%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>用纯 CSS 实现镂空效果</title><link>http://xuxinhang.github.io/posts/%E7%94%A8%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E9%95%82%E7%A9%BA%E6%95%88%E6%9E%9C/</link><pubDate>Fri, 22 Feb 2019 23:20:51 +0000</pubDate><guid>http://xuxinhang.github.io/posts/%E7%94%A8%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E9%95%82%E7%A9%BA%E6%95%88%E6%9E%9C/</guid><description>&lt;blockquote>
+&lt;p>UPDATE 2/26&lt;/p>
+&lt;p>现在为示例 CodePen 添加了厂商前缀，并在正文中添加了兼容性提示。感谢评论区的各位。&lt;/p>
+&lt;/blockquote>
+&lt;p>近来研究了一下镂空效果。&lt;/p>
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

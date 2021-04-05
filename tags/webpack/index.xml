@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Webpack on 小牛写字的地方</title><link>http://xuxinhang.github.io/tags/webpack/</link><description>Recent content in Webpack on 小牛写字的地方</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Mar 2017 12:46:23 +0000</lastBuildDate><atom:link href="http://xuxinhang.github.io/tags/webpack/index.xml" rel="self" type="application/rss+xml"/><item><title>指南：如何让Webpack包加载得更快</title><link>http://xuxinhang.github.io/posts/%E6%8C%87%E5%8D%97%E5%A6%82%E4%BD%95%E8%AE%A9webpack%E5%8C%85%E5%8A%A0%E8%BD%BD%E5%BE%97%E6%9B%B4%E5%BF%AB/</link><pubDate>Wed, 01 Mar 2017 12:46:23 +0000</pubDate><guid>http://xuxinhang.github.io/posts/%E6%8C%87%E5%8D%97%E5%A6%82%E4%BD%95%E8%AE%A9webpack%E5%8C%85%E5%8A%A0%E8%BD%BD%E5%BE%97%E6%9B%B4%E5%BF%AB/</guid><description>&lt;p>&lt;img src="4ab27a9426ce3fc36133257bec467464.png" alt="img">&lt;/p>
+&lt;h1 id="我们为什么需要加载更快的包">我们为什么需要加载更快的包&lt;/h1>
+&lt;ol>
+&lt;li>减少首屏加载时间。 在目前国内的网络条件下，通常一个网站，如果“首屏时间”在2秒以内是比较优秀的，5秒以内用户可以接受，10秒以上就不可容忍了。&lt;/li>
+&lt;li>减小打包体积。 并不是每个地方都有4G（去过东图书库吗）&lt;/li>
+&lt;/ol>
+&lt;h1 id="思路">思路&lt;/h1>
+&lt;p>&lt;img src="8bf8f21071a2e1dd6a43796444548325.png" alt="img">&lt;/p></description></item></channel></rss>

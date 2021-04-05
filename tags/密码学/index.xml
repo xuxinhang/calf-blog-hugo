@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>密码学 on 小牛写字的地方</title><link>http://xuxinhang.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/</link><description>Recent content in 密码学 on 小牛写字的地方</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 11 Jan 2019 23:13:38 +0000</lastBuildDate><atom:link href="http://xuxinhang.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>剖析 HTTPS 的设计思路</title><link>http://xuxinhang.github.io/posts/%E5%89%96%E6%9E%90-https-%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</link><pubDate>Fri, 11 Jan 2019 23:13:38 +0000</pubDate><guid>http://xuxinhang.github.io/posts/%E5%89%96%E6%9E%90-https-%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</guid><description>HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer ，安全的超文本传输协议），是以安全为目标的HTTP通道。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。这个系统的最初研发由 Netscape 进行。
+如今，HTTPS 已经渐渐成为主流，很多大型网站都已经全站 HTTPS 化。那么有了 HTTP 后为什么还需要有 HTTPS 呢？——为了解决 HTTP 的不足。
+HTTP 的不足之处
+通信内容使用明文——内容可能被窃听 不验证通信方的身份——可能遭遇伪装 无法验证报文的完整性——报文有可能已遭篡改 现在来看看一般的明文通信都存在什么问题。
+使用明文传输内容存在的问题 在理想的信息流动情况下，信息能够安全达到目的地且未受到任何攻击。
+我们平时生活中所说的“攻击”，更多地有”主动“的意义。但是这里的攻击，囊括了主动和被动两层意义。根据 ITU-T 的 X.800 推荐标准（OSI 安全框架），攻击分为以下几类：
+被动攻击 窃听：一个非授权方介入系统的攻击，获取了传输的信息，破坏保密性。 流量攻击：监听流量来判断通信的性质。 主动攻击 伪装/冒充：个实体假装成另外一个实体。 伪造/篡改：将伪造的客体插入系统中，破坏真实性。 重放：获取有效数据段以重播的方式获取对方信任。 DoS / DDoS：导致合法用户不能够访问正常网络服务的行为都算是拒绝服务攻击。 一般的明文网络访问，无法防止上面所述的攻击方式。通过应用密码学的知识，一般可以阻止上面多数的攻击。（但是密码学对流量攻击、重放和 (D)DoS 还做不了太多。防止重放攻击还需要在更高的应用层做一些处理。）
+下面，我们用密码学来解决它可以解决的风险：
+窃听风险：黑客可以获知通信内容。 —— 保证数据的隐私性 篡改风险：黑客可以修改通信内容。 —— 保证数据的完整性 冒充风险：黑客可以冒充他人身份参与通信。 —— 保证身份正确。 解决窃听风险：加密 1、对称加密 。有流式、分组两种，加密和解密都是使用的同一个密钥。 例如：DES、AES 等</description></item></channel></rss>

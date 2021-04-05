@@ -1,0 +1,172 @@
+<!doctype html><html class=no-js lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><title>使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务 - 小牛写字的地方</title><script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script><meta name=description content><meta property="og:title" content="使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务"><meta property="og:description" content="使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务 选择一款墙外的云服务 如果有点钱：买一个云 这里还是推荐使用付费的云服务器，因为它的性能更加稳定，而且有良好的技术支持。只要所选的服务器位于墙外的网络上就可以。
+蓐羊毛：使用免费云 如果不想出这笔钱，也可选择境外的免费云服务。这里选择的是 Heroku 和 OpenShift，而且也不需要信用卡认证。这两个网站的登录、注册和管理页面需要翻墙才能进入。所以，需要提前备一个翻墙服务，直到完成服务器的部署。
+免费的服务一般速度会比较慢，延迟高，而且也不稳定。如果你需要快速、更稳定的翻墙服务就不要在这上面打主意了，买一个靠谱的云服务吧！
+使用 Heroku   进入 Heroku，注册一个账户，登录。可能需要翻墙才能进入注册页面。
+  进入管理页面， New -> Create New App 选择服务器位置，选择 &ldquo;Europe&rdquo; 还是 &ldquo;US&rdquo; 看自己，可以都试一试。
+  进入新建的 App，“Settings”中，添加一个环境变量 “V2RAY_CONFIG_JSON”，内容为你的 JSON 配置内容。（这里的 value 框可以输入多行，这个设计很不错！）
+  进入“Deploy”，选择使用“Heroku CLI”，照网页上的指导进行操作，完成部署。
+ 另外也有几个命令值得关注：
+heroku git:remote - 添加 remote 到现有的仓库 Link
+&mldr;
+更详细的步骤可见 Deploy the app
+ 一般来说，只要一 push，部署过程就会自动执行。
+  服务端配置示例 { &#34;log&#34;: { &#34;error&#34;: &#34;."><meta property="og:type" content="article"><meta property="og:url" content="http://xuxinhang.github.io/posts/%E4%BD%BF%E7%94%A8heroku%E6%88%96openshift%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91v2ray%E6%9C%8D%E5%8A%A1/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2019-02-12T22:16:40+00:00"><meta property="article:modified_time" content="2019-02-12T22:16:40+00:00"><meta itemprop=name content="使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务"><meta itemprop=description content="使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务 选择一款墙外的云服务 如果有点钱：买一个云 这里还是推荐使用付费的云服务器，因为它的性能更加稳定，而且有良好的技术支持。只要所选的服务器位于墙外的网络上就可以。
+蓐羊毛：使用免费云 如果不想出这笔钱，也可选择境外的免费云服务。这里选择的是 Heroku 和 OpenShift，而且也不需要信用卡认证。这两个网站的登录、注册和管理页面需要翻墙才能进入。所以，需要提前备一个翻墙服务，直到完成服务器的部署。
+免费的服务一般速度会比较慢，延迟高，而且也不稳定。如果你需要快速、更稳定的翻墙服务就不要在这上面打主意了，买一个靠谱的云服务吧！
+使用 Heroku   进入 Heroku，注册一个账户，登录。可能需要翻墙才能进入注册页面。
+  进入管理页面， New -> Create New App 选择服务器位置，选择 &ldquo;Europe&rdquo; 还是 &ldquo;US&rdquo; 看自己，可以都试一试。
+  进入新建的 App，“Settings”中，添加一个环境变量 “V2RAY_CONFIG_JSON”，内容为你的 JSON 配置内容。（这里的 value 框可以输入多行，这个设计很不错！）
+  进入“Deploy”，选择使用“Heroku CLI”，照网页上的指导进行操作，完成部署。
+ 另外也有几个命令值得关注：
+heroku git:remote - 添加 remote 到现有的仓库 Link
+&mldr;
+更详细的步骤可见 Deploy the app
+ 一般来说，只要一 push，部署过程就会自动执行。
+  服务端配置示例 { &#34;log&#34;: { &#34;error&#34;: &#34;."><meta itemprop=datePublished content="2019-02-12T22:16:40+00:00"><meta itemprop=dateModified content="2019-02-12T22:16:40+00:00"><meta itemprop=wordCount content="637"><meta itemprop=keywords content="科学上网,V2Ray,"><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=//fonts.googleapis.com><link rel=dns-prefetch href=//fonts.gstatic.com><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/custom.css><link rel="shortcut icon" href=/favicon.ico></head><body class=body><div class="container container--outer"><header class=header><div class="container header__container"><div class=logo><a class=logo__link href=/ title=小牛写字的地方 rel=home><div class="logo__item logo__text"><div class=logo__title>小牛写字的地方</div><div class=logo__tagline>专属小牛的写字工作区</div></div></a></div><nav class=menu><button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menu</span></button><ul class=menu__list><li class=menu__item><a class=menu__link href=/><span class=menu__text>首页</span></a></li><li class=menu__item><a class=menu__link href=/posts/><span class=menu__text>文章</span></a></li><li class=menu__item><a class=menu__link href=/about/><span class=menu__text>关于我</span></a></li><li class=menu__item><a class=menu__link href=https://github.com/xuxinhang><span class=menu__text>GitHub</span></a></li></ul></nav></div></header><div class="wrapper flex"><div class=primary><main class=main role=main><article class=post><header class=post__header><h1 class=post__title>使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务</h1><div class="post__meta meta"><div class="meta__item-author meta__item"><svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>小牛</span></div><div class="meta__item-datetime meta__item"><svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2019-02-12T22:16:40Z>2019-02-12</time></div></div></header><div class="post__toc toc"><div class=toc__title>Page content</div><div class=toc__menu><nav id=TableOfContents><ul><li><a href=#选择一款墙外的云服务>选择一款墙外的云服务</a><ul><li><a href=#如果有点钱买一个云>如果有点钱：买一个云</a></li><li><a href=#蓐羊毛使用免费云>蓐羊毛：使用免费云</a></li><li><a href=#使用-heroku>使用 Heroku</a></li><li><a href=#使用-openshift>使用 OpenShift</a></li></ul></li><li><a href=#v2ray-客户端配置>V2Ray 客户端配置</a><ul><li><a href=#关于-v2ray>关于 V2Ray</a></li><li><a href=#使用客户端>使用客户端</a></li><li><a href=#浏览器连接到-v2ray-客户端>浏览器连接到 V2Ray 客户端</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class="content post__content clearfix"><h1 id=使用-heroku-或-openshift-搭建自己的免费科学上网-v2ray-服务>使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务</h1><h2 id=选择一款墙外的云服务>选择一款墙外的云服务</h2><h3 id=如果有点钱买一个云>如果有点钱：买一个云</h3><p>这里还是推荐使用付费的云服务器，因为它的性能更加稳定，而且有良好的技术支持。只要所选的服务器位于墙外的网络上就可以。</p><h3 id=蓐羊毛使用免费云>蓐羊毛：使用免费云</h3><p>如果不想出这笔钱，也可选择境外的免费云服务。这里选择的是 Heroku 和 OpenShift，而且也<strong>不需要信用卡</strong>认证。这两个网站的登录、注册和管理页面需要翻墙才能进入。所以，需要提前备一个翻墙服务，直到完成服务器的部署。</p><p>免费的服务一般速度会比较慢，延迟高，而且也不稳定。如果你需要快速、更稳定的翻墙服务就不要在这上面打主意了，买一个靠谱的云服务吧！</p><h3 id=使用-heroku>使用 Heroku</h3><ol><li><p>进入 <a href=https://heroku.com>Heroku</a>，注册一个账户，登录。可能需要翻墙才能进入注册页面。</p></li><li><p>进入管理页面， <code>New</code> -> <code>Create New App</code> 选择服务器位置，选择 &ldquo;Europe&rdquo; 还是 &ldquo;US&rdquo; 看自己，可以都试一试。</p></li><li><p>进入新建的 App，“Settings”中，添加一个环境变量 “<code>V2RAY_CONFIG_JSON</code>”，内容为你的 JSON 配置内容。（这里的 value 框可以输入多行，这个设计很不错！）</p></li><li><p>进入“Deploy”，选择使用“Heroku CLI”，照网页上的指导进行操作，完成部署。</p><blockquote><p>另外也有几个命令值得关注：</p><p><code>heroku git:remote</code> - 添加 remote 到现有的仓库 <a href=https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-git-remote>Link</a></p><p>&mldr;</p><p>更详细的步骤可见 <a href=https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app>Deploy the app</a></p></blockquote><p>一般来说，只要一 push，部署过程就会自动执行。</p></li></ol><h4 id=服务端配置示例>服务端配置示例</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;log&#34;</span>: {
+    <span style=color:#f92672>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;./error.log&#34;</span>,
+    <span style=color:#f92672>&#34;loglevel&#34;</span>: <span style=color:#e6db74>&#34;warning&#34;</span>
+  },
+  <span style=color:#f92672>&#34;inbounds&#34;</span>: [{
+    <span style=color:#f92672>&#34;port&#34;</span>: <span style=color:#e6db74>&#34;env:PORT&#34;</span>,           <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>要监听的端口使用环境变量定义的值</span>
+    <span style=color:#f92672>&#34;listen&#34;</span>: <span style=color:#e6db74>&#34;0.0.0.0&#34;</span>,          <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>监听来自所有网络的流量</span>
+    <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;shadowsocks&#34;</span>,    <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>使用</span> <span style=color:#960050;background-color:#1e0010>SS</span> <span style=color:#960050;background-color:#1e0010>协议</span>
+    <span style=color:#f92672>&#34;settings&#34;</span>: {
+      <span style=color:#f92672>&#34;method&#34;</span>: <span style=color:#e6db74>&#34;aes-256-cfb&#34;</span>,    <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>加密方式</span>
+      <span style=color:#f92672>&#34;password&#34;</span>: <span style=color:#e6db74>&#34;your_password&#34;</span> <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>你自己的密码</span>
+    },
+    <span style=color:#f92672>&#34;streamSettings&#34;</span>: {
+      <span style=color:#f92672>&#34;network&#34;</span>:<span style=color:#e6db74>&#34;ws&#34;</span>              <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>使用</span> <span style=color:#960050;background-color:#1e0010>WebSocket</span> <span style=color:#960050;background-color:#1e0010>作为传输协议</span>
+    }
+  }],
+  <span style=color:#f92672>&#34;outbounds&#34;</span>: [{
+    <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;freedom&#34;</span>,
+    <span style=color:#f92672>&#34;settings&#34;</span>: {}
+  }]
+}
+</code></pre></div><h4 id=一些问题>一些问题</h4><ul><li><p>Heroku 貌似只允许 HTTP 和 WebSocket 协议访问。</p></li><li><p>Heroku 的免费版服务30 分钟无流量会进入休眠状态，之后再次有访问就会再唤醒服务。但是唤醒是需要时间的。这会表现为首次访问的卡顿。这是服务提供方的限制。可以使用网上的定时访问服务来实现 30 分钟做一次 HTTP 访问，阻止休眠。</p><blockquote><p>可到 <a href=https://uptimerobot.com/>https://uptimerobot.com/</a> 设置每5分钟访问一次你的heroku app网址，防休眠。</p></blockquote></li><li><p>每个 Heroku 账户一共有 550 小时的免费服务使用时间（认证账户有 1000 小时）。如果你的账户只有一个 V2Ray 的服务，一个月 550 小时应该够用了。</p><blockquote><p>Heroku 免费账户的限制可见 <a href=https://www.heroku.com/pricing>https://www.heroku.com/pricing</a></p></blockquote></li><li><p>V2Ray 运行起来后，访问服务地址应有 “Bad Request” 字样。（服务地址可用 “Open app” 按钮来打开。）如果没有，可能是 V2Ray 程序未启动。此时应 使用 “More” -> “Run Console” 手动运行 <code>./Procfile</code> 的 <code>web:</code> 后的脚本。</p><blockquote><p>Procfile 的编写可见 <a href=https://devcenter.heroku.com/articles/procfile>https://devcenter.heroku.com/articles/procfile</a></p></blockquote></li></ul><h4 id=如果要修改代码>如果要修改代码</h4><ul><li><code>PORT</code> 环境变量是由 Heroku 自定的，代表 Heroku 对我们暴露的端口。配置中可以用 <code>"port": "env:PORT"</code> 来将 <code>PORT</code> 环境变量作为服务端 <code>port</code> 的配置。Heroku 做了端口映射，这里的 <code>PORT</code> 对应 Heroku App 对外的 80 端口。<a href=https://devcenter.heroku.com/articles/runtime-principles#web-servers>见这里</a></li><li>&mldr;</li></ul><h3 id=使用-openshift>使用 OpenShift</h3><ol><li><p>GitHub 上新建自己的代码仓库，将代码提交到上面</p></li><li><p>注册账户，登录，选择使用 Starter Plan。进入 Starter Plan 的控制台。（可能需要翻墙才能进入注册页面。）</p></li><li><p>新建一个 Project ，进入，选 “Browser Catalog” -> &ldquo;Node.js&rdquo; 。 “Git Respository” 填入你的仓库地址。点 “Create”。</p></li><li><p>现在，OpenShift 应该已经迫不及待地先拉取代码，Build，再 Deploy 了。</p></li><li><p>但是，还有几步要做。配置环境变量：</p><ul><li>进入 “Overview” ，在 Application - Deploy Config 下，点击三个点 -> “Edit”</li><li>&ldquo;Environment Variables&rdquo; 下新增两个环境变量，保存：<ul><li><code>V2RAY_CONFIG_JSON</code> ：填写 V2Ray 配置，只能填一行。填入的内容要符合 JSON 格式，<em>注意剔除注释</em>。</li><li><code>PORT</code>：指定 inbound 端口，这里是 “8080”。（和 “Application” -> “Routes” 下的配置一致。）</li></ul></li></ul></li><li><p>调整路由：</p><ul><li>前往 “Overview” - &lt;你的Application名称> - “Networking”。</li><li>未配置路由请点击 “Create Route” 。已配置路由则进入 “Application” -> “Routes”，进入对应项目，执行 “Action” - “Edit”。</li><li>“Security” 下勾选 “Secure route”，保存。</li></ul></li><li><p>重新部署。 “Application” -> “Deployment” -> <em>&lt;你的Application名称></em> -> 点 “Deploy” 按钮。</p></li><li><p>如果你更新了代码仓库，想更新 Project，要先到 “Builds” -> &ldquo;Builds&rdquo; 下进行构建，再到 “Application” -> “Deploy” 做部署。</p></li><li><p>如果返回 Overview 界面能看到服务器地址了，那么服务端已经大功告成。直接访问服务的 HTTPS 地址应有 “Bad Request” 字样。</p></li></ol><h4 id=一些问题-1>一些问题</h4><ul><li>OpenShift 免费的 Starter Plan <a href=https://www.OpenShift.com/products/online/>亦有限制</a>：<ul><li>Starter Plan 下只许有一个 Project</li><li>同样在 30min 无活动后休眠，且每 72 小时内需有 18 小时的休眠时间。（如果你不是三天三夜不合眼翻墙，应该也够了。）</li><li>60 天之后自动过期，到时需 resubscribe 。</li></ul></li><li>不过 OpenShift 支持 TCP 直连，所以你也可使用性能更好的 TCP 传输协议而不是本仓库中用的 WebSocket。</li></ul><h4 id=如果你要修改代码>如果你要修改代码</h4><ul><li>只有 Build 环节才可 <code>chmod</code>，一旦构建为 Image，部署后执行<code>chmod</code>是没有权限的。</li><li>默认在 Node.js 项目中，Build 过程调用 <code>npm build</code>；Deploy 过程调用 <code>npm start</code> 运行程序。</li><li>也可以使用自己的 Build / Deploy 脚本。参见 <a href=https://stackoverflow.com/questions/46091601/cannot-chmod-file-on-OpenShift-online-v3-operation-not-permitted>Stackoverflow</a>。</li><li>&mldr;</li></ul><h4 id=服务端-v2ray-配置示例>服务端 V2Ray 配置示例</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=color:#960050;background-color:#1e0010>/*</span> <span style=color:#960050;background-color:#1e0010>和</span> <span style=color:#960050;background-color:#1e0010>Heroku</span> <span style=color:#960050;background-color:#1e0010>的几乎完全一样，复制过去注意删去注释</span> <span style=color:#960050;background-color:#1e0010>*/</span>
+{
+  <span style=color:#f92672>&#34;log&#34;</span>: {
+    <span style=color:#f92672>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;./error.log&#34;</span>,
+    <span style=color:#f92672>&#34;loglevel&#34;</span>: <span style=color:#e6db74>&#34;warning&#34;</span>
+  },
+  <span style=color:#f92672>&#34;inbounds&#34;</span>: [
+    {
+      <span style=color:#f92672>&#34;port&#34;</span>: <span style=color:#e6db74>&#34;env:PORT&#34;</span>,
+      <span style=color:#f92672>&#34;listen&#34;</span>: <span style=color:#e6db74>&#34;0.0.0.0&#34;</span>,
+      <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;shadowsocks&#34;</span>,
+      <span style=color:#f92672>&#34;settings&#34;</span>: {
+        <span style=color:#f92672>&#34;method&#34;</span>: <span style=color:#e6db74>&#34;aes-256-cfb&#34;</span>,
+        <span style=color:#f92672>&#34;password&#34;</span>: <span style=color:#e6db74>&#34;your_password&#34;</span>   <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>修改为你的密码</span>
+      },
+      <span style=color:#f92672>&#34;streamSettings&#34;</span>: {
+        <span style=color:#f92672>&#34;network&#34;</span>: <span style=color:#e6db74>&#34;ws&#34;</span>
+      }
+    }
+  ],
+  <span style=color:#f92672>&#34;outbounds&#34;</span>: [
+    {
+      <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;freedom&#34;</span>,
+      <span style=color:#f92672>&#34;settings&#34;</span>: {}
+    }
+  ]
+}
+</code></pre></div><h2 id=v2ray-客户端配置>V2Ray 客户端配置</h2><h3 id=关于-v2ray>关于 V2Ray</h3><p>V2Ray 是新一代的科学上网利器。它更为小众，支持的协议也更多，更不容易被封禁。</p><p>V2Ray <strong>原生支持多协议</strong>，包括但不限于Socks、HTTP、Shadowsocks、VMess等；也支持使用 WebSocket，TCP，TLS 等<strong>多种传输协议进行传输</strong>。此外，V2Ray 内置灵活的路由，通过内置的路由功能，它可以灵活地实现选择性转发、直连或是阻止部分连接。对 DNS 服务也有基本的支持。</p><p>可见 <a href=https://www.**v2ray**.com>V2Ray 文档</a> 和 <a href=https://toutyrater.github.io/>V2Ray 白话文教程</a></p><h6 id=本文为什么使用-v2ray>本文为什么使用 V2Ray？</h6><p>因为 Heroku 只支持 HTTP 和 WebSocket 协议，所以原生支持 WebSocket 作为传输协议的 V2Ray 就是不二之选了。（OpenShift 貌似没这一限制。）</p><p>另外，需要注意的是，“协议”和“传输协议”是不一样的。“传输协议”是“协议”的载体。</p><h3 id=使用客户端>使用客户端</h3><p>到 <a href=https://github.com/v2ray/v2ray-core/releases>github.com/v2ray/v2ray-core</a> 下载 V2Ray，按照 V2Ray 文档所述运行。如果不指定 <code>-config</code> 参数，默认使用同目录下的 <code>config.json</code> 文件。</p><p>可以将配置文件保存为同目录下的 <code>config.json</code>， 然后直接运行 <code>v2ray</code>。</p><blockquote><p>Windows 下的 GUI 可使用 V2RayN</p><p>macOS GUI 可用 V2RayX</p><p>Android 下可使用 BifrostV、V2Ray Go、V2RayNG、Actinium</p><p>可见 <a href=https://www.i5seo.com/v2ray-android-v2rayng-actinium-bifrostv-v2ray-go-actinium.html>这篇文章</a></p></blockquote><h4 id=客户端配置示例-heroku>客户端配置示例 (Heroku)</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-JSON data-lang=JSON>{
+  <span style=color:#f92672>&#34;inbounds&#34;</span>: [
+    {
+      <span style=color:#f92672>&#34;port&#34;</span>: <span style=color:#ae81ff>1081</span>,
+      <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;socks&#34;</span>,
+      <span style=color:#f92672>&#34;sniffing&#34;</span>: {
+        <span style=color:#f92672>&#34;enabled&#34;</span>: <span style=color:#66d9ef>true</span>,
+        <span style=color:#f92672>&#34;destOverride&#34;</span>: [<span style=color:#e6db74>&#34;http&#34;</span>, <span style=color:#e6db74>&#34;tls&#34;</span>]
+      },
+      <span style=color:#f92672>&#34;settings&#34;</span>: {
+        <span style=color:#f92672>&#34;auth&#34;</span>: <span style=color:#e6db74>&#34;noauth&#34;</span>
+      }
+    }
+  ],
+  <span style=color:#f92672>&#34;outbounds&#34;</span>: [
+    {
+      <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;shadowsocks&#34;</span>,
+      <span style=color:#f92672>&#34;settings&#34;</span>: {
+        <span style=color:#f92672>&#34;servers&#34;</span>: [
+          {
+            <span style=color:#f92672>&#34;address&#34;</span>: <span style=color:#e6db74>&#34;your_app_name.herokuapp.com&#34;</span>, <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>域名，可在</span> <span style=color:#960050;background-color:#1e0010>Settings</span> <span style=color:#960050;background-color:#1e0010>中找到</span>
+            <span style=color:#f92672>&#34;method&#34;</span>: <span style=color:#e6db74>&#34;aes-256-cfb&#34;</span>,                  <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>对应</span>
+            <span style=color:#f92672>&#34;password&#34;</span>: <span style=color:#e6db74>&#34;your_password&#34;</span>,              <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>服务端配置中对应的密码</span>
+            <span style=color:#f92672>&#34;port&#34;</span>: <span style=color:#ae81ff>80</span>                                <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>默认</span> <span style=color:#ae81ff>80</span> <span style=color:#960050;background-color:#1e0010>端口</span>
+          }
+        ]
+      },
+      <span style=color:#f92672>&#34;streamSettings&#34;</span>:{
+        <span style=color:#f92672>&#34;network&#34;</span>:<span style=color:#e6db74>&#34;ws&#34;</span>
+      },
+      <span style=color:#f92672>&#34;mux&#34;</span>: { <span style=color:#f92672>&#34;enabled&#34;</span>: <span style=color:#66d9ef>true</span> }                      <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>多路复用</span>
+    }
+  ]
+}
+</code></pre></div><h4 id=客户端配置示例-openshift>客户端配置示例 (OpenShift)</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+  <span style=color:#f92672>&#34;inbounds&#34;</span>: [
+    {
+      <span style=color:#f92672>&#34;port&#34;</span>: <span style=color:#ae81ff>1081</span>,
+      <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;socks&#34;</span>,
+      <span style=color:#f92672>&#34;sniffing&#34;</span>: {
+        <span style=color:#f92672>&#34;enabled&#34;</span>: <span style=color:#66d9ef>true</span>,
+        <span style=color:#f92672>&#34;destOverride&#34;</span>: [<span style=color:#e6db74>&#34;http&#34;</span>, <span style=color:#e6db74>&#34;tls&#34;</span>]
+      },
+      <span style=color:#f92672>&#34;settings&#34;</span>: {
+        <span style=color:#f92672>&#34;auth&#34;</span>: <span style=color:#e6db74>&#34;noauth&#34;</span>
+      }
+    }
+  ],
+  <span style=color:#f92672>&#34;outbounds&#34;</span>: [
+    {
+      <span style=color:#f92672>&#34;tag&#34;</span>: <span style=color:#e6db74>&#34;OpenShift&#34;</span>,
+      <span style=color:#f92672>&#34;protocol&#34;</span>: <span style=color:#e6db74>&#34;shadowsocks&#34;</span>,
+      <span style=color:#f92672>&#34;settings&#34;</span>: {
+        <span style=color:#f92672>&#34;servers&#34;</span>: [
+          {
+            <span style=color:#f92672>&#34;address&#34;</span>: <span style=color:#e6db74>&#34;your.name.OpenShiftapps.com&#34;</span>, <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>域名，在</span> <span style=color:#960050;background-color:#1e0010>Overview</span> <span style=color:#960050;background-color:#1e0010>或</span> <span style=color:#960050;background-color:#1e0010>Routes</span> <span style=color:#960050;background-color:#1e0010>中找到</span>
+            <span style=color:#f92672>&#34;method&#34;</span>: <span style=color:#e6db74>&#34;aes-256-cfb&#34;</span>,
+            <span style=color:#f92672>&#34;password&#34;</span>: <span style=color:#e6db74>&#34;your_password&#34;</span>,              <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>服务端配置中对应的密码</span>
+            <span style=color:#f92672>&#34;port&#34;</span>: <span style=color:#ae81ff>443</span>                               <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>wss</span> <span style=color:#960050;background-color:#1e0010>默认使用</span> <span style=color:#ae81ff>433</span> <span style=color:#960050;background-color:#1e0010>端口</span>
+          }
+        ]
+      },
+      <span style=color:#f92672>&#34;streamSettings&#34;</span>:{
+        <span style=color:#f92672>&#34;network&#34;</span>:<span style=color:#e6db74>&#34;ws&#34;</span>,
+        <span style=color:#f92672>&#34;security&#34;</span>: <span style=color:#e6db74>&#34;tls&#34;</span>,          <span style=color:#960050;background-color:#1e0010>//</span> <span style=color:#960050;background-color:#1e0010>对应服务端的设置，这里使用加密的</span> <span style=color:#960050;background-color:#1e0010>WebSocket</span> <span style=color:#960050;background-color:#1e0010>协议</span>
+        <span style=color:#f92672>&#34;tlsSettings&#34;</span>: {
+          <span style=color:#f92672>&#34;allow Insecure&#34;</span>: <span style=color:#66d9ef>true</span>
+        }
+      },
+      <span style=color:#f92672>&#34;mux&#34;</span>: { <span style=color:#f92672>&#34;enabled&#34;</span>: <span style=color:#66d9ef>true</span> }
+    }
+  ]
+}
+</code></pre></div><h3 id=浏览器连接到-v2ray-客户端>浏览器连接到 V2Ray 客户端</h3><p>自行 Google</p><p>配置要和客户端 <code>inbounds</code> 配置对应</p><hr><h2 id=参考>参考</h2><ol><li><a href=https://51.ruyo.net/1469.html>https://51.ruyo.net/1469.html</a></li><li><a href=https://51.ruyo.net/1469.html>利用OpenShift搭建免(翻)费(墙)科技</a></li><li><a href=https://51.ruyo.net/1461.html>利用Heroku搭建免费科学爬墙（亲测可行）</a></li><li><a href=http://www.live-in.org/archives/1818.html>OpenShift使用方法介绍</a></li><li><a href=https://51.ruyo.net/4023.html>OpenShift V3版操作使用指南-入门版（附福利）</a></li><li><a href=http://suki.live/2018/10/25/%E4%BD%BF%E7%94%A8OpenShift%E7%9A%84%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAV2Ray/>使用OpenShift的免费服务器搭建V2Ray</a></li><li><a href=https://github.com/wangyi2005/v2ray/issues/8#>openshift 部署 V2Ray Websocket 服务端成功，客户端怎么弄，谢谢大神解惑！</a></li><li><a href=https://github.com/onplus/shadowsocks-heroku/issues/57#>shadowsocks-heroku（美国）配合DnsJumper小公举，速度稳定在2M</a></li><li><a href=https://xlesun.com/v2ray-1.html>Heroku部署免费的V2Ray节点</a></li><li><a href=https://bbs.hupu.com/19816661.html>https://bbs.hupu.com/19816661.html</a></li><li><a href=http://cyjun.win/2017/06/03/heroku%E9%83%A8%E7%BD%B2SS/>heroku部署SS</a></li><li><a href=https://lsland.cn/Technical/OpenShift.html>【教程】使用OpenShift搭建V2ray出国旅游</a></li></ol></div><footer class=post__footer><div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg><ul class=tags__list><li class=tags__item><a class="tags__link btn" href=/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ rel=tag>科学上网</a></li><li class=tags__item><a class="tags__link btn" href=/tags/v2ray/ rel=tag>V2Ray</a></li></ul></div></footer></article></main><div class="authorbox clearfix"><figure class=authorbox__avatar><img alt="小牛 avatar" src=/img/avatar.png class=avatar height=90 width=90></figure><div class=authorbox__header><span class=authorbox__name>About 小牛</span></div><div class=authorbox__description>就只是一只小牛而已</div></div><nav class="pager flex"><div class="pager__item pager__item--prev"><a class=pager__link href=/posts/%E5%89%96%E6%9E%90-https-%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/ rel=prev><span class=pager__subtitle>«&#8201;Previous</span><p class=pager__title>剖析 HTTPS 的设计思路</p></a></div><div class="pager__item pager__item--next"><a class=pager__link href=/posts/%E7%94%A8%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E9%95%82%E7%A9%BA%E6%95%88%E6%9E%9C/ rel=next><span class=pager__subtitle>Next&#8201;»</span><p class=pager__title>用纯 CSS 实现镂空效果</p></a></div></nav></div><aside class="sidebar sidebar--left"><div class="widget-search widget"><form class=widget-search__form role=search method=get action=https://google.com/search><label><input class=widget-search__field type=search placeholder=SEARCH… name=q aria-label=SEARCH…></label>
+<input class=widget-search__submit type=submit value=Search>
+<input type=hidden name=sitesearch value=http://xuxinhang.github.io/></form></div><div class="widget-recent widget"><h4 class=widget__title>Recent Posts</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/posts/%E4%BD%BF%E7%94%A8tex%E7%9B%92%E5%AD%90%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%BE%8B%E5%AD%90/>使用 TeX 盒子的两个例子</a></li><li class=widget__item><a class=widget__link href=/posts/%E6%9D%82%E8%B0%88%E6%80%8E%E6%A0%B7%E6%95%B4%E7%90%86%E5%90%84%E5%BC%8F%E5%90%84%E6%A0%B7%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%96%87%E4%BB%B6/>杂谈：怎样整理各式各样的个人文件？</a></li><li class=widget__item><a class=widget__link href=/posts/%E6%80%8E%E6%A0%B7%E8%88%92%E9%80%82%E5%9C%B0%E4%BD%BF%E7%94%A8vim%E7%A0%81%E5%AD%97%E5%86%99%E6%96%87%E7%AB%A0/>怎样舒适地使用 Vim 码字写文章</a></li><li class=widget__item><a class=widget__link href=/posts/latex%E5%85%A5%E9%97%A8%E5%B0%8F%E8%AE%B0vim+vimtex+latex%E5%88%9D%E4%BD%93%E9%AA%8C/>LaTeX 入门小记：Vim + Vimtex + LaTeX 初体验</a></li><li class=widget__item><a class=widget__link href=/posts/%E7%94%A8%E7%BA%AFcss%E5%AE%9E%E7%8E%B0%E9%95%82%E7%A9%BA%E6%95%88%E6%9E%9C/>用纯 CSS 实现镂空效果</a></li><li class=widget__item><a class=widget__link href=/posts/%E4%BD%BF%E7%94%A8heroku%E6%88%96openshift%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%85%8D%E8%B4%B9%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91v2ray%E6%9C%8D%E5%8A%A1/>使用 Heroku 或 OpenShift 搭建自己的免费科学上网 V2Ray 服务</a></li><li class=widget__item><a class=widget__link href=/posts/%E5%89%96%E6%9E%90-https-%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/>剖析 HTTPS 的设计思路</a></li><li class=widget__item><a class=widget__link href=/posts/pro-git-tips/>Pro Git Tips</a></li><li class=widget__item><a class=widget__link href=/posts/%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%9E%8B/>管理系统的登录控制？手写一个发布订阅模型！</a></li><li class=widget__item><a class=widget__link href=/posts/%E5%85%B3%E4%BA%8Epromise%E7%9A%84%E5%87%A0%E4%B8%AAtips/>关于Promise的几个Tips</a></li></ul></div></div><div class="widget-categories widget"><h4 class=widget__title>Categories</h4><div class=widget__content><ul class=widget__list><li class=widget__item><a class=widget__link href=/categories/latex/>LaTeX</a></li></ul></div></div><div class="widget-taglist widget"><h4 class=widget__title>Tags</h4><div class=widget__content><a class="widget-taglist__link widget__link btn" href=/tags/blend-mode/ title="blend mode">blend mode</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/context/ title=Context>Context</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/css/ title=CSS>CSS</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/flex/ title=Flex>Flex</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/git/ title=Git>Git</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/https/ title=HTTPS>HTTPS</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/javascript/ title=Javascript>Javascript</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/latex/ title=LaTeX>LaTeX</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/mask/ title=mask>mask</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/promise/ title=Promise>Promise</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/react/ title=React>React</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/ssh/ title=SSH>SSH</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/v2ray/ title=V2Ray>V2Ray</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/vim/ title=Vim>Vim</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/webpack/ title=Webpack>Webpack</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/ title=发布订阅>发布订阅</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/ title=密码学>密码学</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/ title=开发工具>开发工具</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E6%B7%B7%E5%90%88%E6%A8%A1%E5%BC%8F/ title=混合模式>混合模式</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/ title=科学上网>科学上网</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ title=设计模式>设计模式</a>
+<a class="widget-taglist__link widget__link btn" href=/tags/%E9%95%82%E7%A9%BA/ title=镂空>镂空</a></div></div></aside></div><footer class=footer><div class="container footer__container flex"><div class=footer__copyright>&copy; 2021 xuxinhang.
+<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span></div></div></footer></div><script async defer src=/js/menu.js></script><script src=/js/custom.js></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script></body></html>

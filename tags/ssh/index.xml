@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSH on 小牛写字的地方</title><link>http://xuxinhang.github.io/tags/ssh/</link><description>Recent content in SSH on 小牛写字的地方</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 17 Mar 2018 22:34:56 +0000</lastBuildDate><atom:link href="http://xuxinhang.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows-Git中OpenSSH无ssh-agent多密钥配置小记</title><link>http://xuxinhang.github.io/posts/windows-git%E4%B8%ADopenssh%E6%97%A0ssh-agent%E5%A4%9A%E5%AF%86%E9%92%A5%E9%85%8D%E7%BD%AE%E5%B0%8F%E8%AE%B0/</link><pubDate>Sat, 17 Mar 2018 22:34:56 +0000</pubDate><guid>http://xuxinhang.github.io/posts/windows-git%E4%B8%ADopenssh%E6%97%A0ssh-agent%E5%A4%9A%E5%AF%86%E9%92%A5%E9%85%8D%E7%BD%AE%E5%B0%8F%E8%AE%B0/</guid><description>最近Git环境崩了，只好重新配置一下。笔者使用的是Windows环境，众所周知，Windows下面配置各种环境都很坑的，Git也不例外。我感觉最大的坑就是SSH的问题。Windows下面 ssh-agent 不自动启动，不长驻内存。当然，我可以强行设置一波系统自启动，也可以通过配置使得在启动 Git Bash 的时候先静默执行agent再进入环境——虽然都可以解决问题，但是总是感觉不舒服。此外，我手里也有多个私钥，在使用Git时，我需要把这些私钥都载入。
+为了舒服地使用Git，当然要义无反顾地踏上配置之路。
+在正式开始之前，先看看笔者之前的操作是什么样子的。
+原先的方法：手动执行命令 打开终端，Push/Pull之前，需要手动执行命令后台启动ssh-agent，并向其中添加密钥。【】
+# 静默启动 ssh-agent exec ssh-agent bash eval ssh-agent -s # 添加密钥 ssh-add &amp;#34;C:\Users\Administrator\.ssh\my_first_private_key&amp;#34; # 你也可以添加更多的 ssh-add &amp;#34;C:\Users\Administrator\.ssh\my_second_private_key&amp;#34; 如此一番操作以后SSH密钥才可以使用——实在太麻烦了！
+Open SSH 命令家族 什么是ssh-agent OpenSSH 文档中是这么解释的：
+ssh-agent 是一个保存用于公钥认证的私钥的程序。所有其他窗口或程序都作为 ssh-agent 程序的客户端启动。
+说白了，它就是一个专门用于保管密钥的程序嘛。
+ssh 命令 ssh应该是最常用的一条命令了。它提供了很多参数，但是有一个参数引起了我的注意。
+-i identity_file Selects a file from which the identity (private key) for public key authentication is read. The default is ~/.ssh/id_dsa, ~/.ssh/id_ecdsa, ~/.ssh/id_ed25519 and ~/.ssh/id_rsa. Identity files may also be specified on a per-host basis in the configuration file.</description></item></channel></rss>
