@@ -1,0 +1,49 @@
+baseURL = "http://xuxinhang.github.io/"
+languageCode = "zh-cn"
+title = "小牛写字的地方"
+theme="mainroad"
+
+[Author]
+  name = "小牛"
+  bio = "就只是一只小牛而已"
+  avatar = "img/avatar.png"
+
+[Params]
+  description = "Calf's Writing Area." # Site description. Used in meta description
+  copyright = "xuxinhang"
+  opengraph = true # Enable OpenGraph if true
+  schema = true # Enable Schema
+  readmore = true
+  authorbox = true
+  toc = true # Enable Table of Contents
+  pager = true
+  post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
+  # mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  dateformat = "2006-01-02" # Change the format of dates
+  mathjax = true # Enable MathJax
+  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+  # googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
+  customCSS = ["css/custom.css"] # Include custom CSS files
+  customJS = ["js/custom.js"] # Include custom JS files
+
+[Params.style.vars]
+  highlightColor = "#6bbf47"
+
+[Params.logo]
+  # image = "img/placeholder.png"
+  title = "小牛写字的地方"
+  subtitle = "专属小牛的写字工作区"
+
+[Params.sidebar]
+  home = "right"
+  list = "right"
+  single = "left"
+  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+
+[menu]
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/xuxinhang"
+    weight = 1001
+
